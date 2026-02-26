@@ -1,4 +1,5 @@
 import pandas
+import random
 
 # Functions go here
 def string_check(question, valid_ans_list=('yes', 'no'), num_letters=1):
@@ -192,6 +193,20 @@ print(mini_movie_frame.to_string(index=False))
 print()
 print(f"Total paid: ${total_paid:.2f}")
 print(f"Total profit: ${total_profit:.2f}")
+
+# Choose random winner
+winner = random.choice(all_names)
+
+# Find index of winner
+winner_index = all_names.index(winner)
+print("winner", winner, "list position", winner_index)
+
+# find total won
+total_won = mini_movie_frame.at[winner_index, 'Total']
+
+# winner announcement
+print(f"The lucky winner is {winner}. Their ticket worth {total_won} is free!")
+
 
 if tickets_sold == MAX_TICKETS:
     print(f"You sold all tickets available! ({MAX_TICKETS})")
